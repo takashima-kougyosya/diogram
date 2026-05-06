@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f0f2f5; }
+        .flow { display: flex; align-items: center; gap: 20px; }
+        .box { background: white; border: 3px solid #1a73e8; padding: 20px; border-radius: 10px; width: 200px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .arrow { font-size: 40px; color: #1a73e8; }
+        .point-box { margin-top: 30px; background: #fff4e5; border-left: 5px solid #ffa000; padding: 15px; width: 700px; }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 style="text-align:center;">S-1 品質管理 AI自動報告ツール 構成図</h2>
+        <div class="flow">
+            <div class="box"><b>①現場入力</b><br><small>スマホで日報入力<br>(ロット・嵩比重等)</small></div>
+            <div class="arrow">➡</div>
+            <div class="box"><b>②AI判定</b><br><small>QC工程表と照合<br>IG.loss等の合否判定</small></div>
+            <div class="arrow">➡</div>
+            <div class="box"><b>③Excel出力</b><br><small>Daily管理表等へ<br>自動転記・警告</small></div>
+        </div>
+        <div class="point-box">
+            <b>💡 工夫したポイント</b><br>
+            ・既存の3つのExcel資産のルールをAIに学習させ、現場運用を変えずに自動化。<br>
+            ・AIに「品質ガード」の役割を持たせ、規格外品の見落としを未然に防ぐ。
+        </div>
+    </div>
+</body>
+</html>
