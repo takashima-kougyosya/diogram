@@ -1,30 +1,82 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <title>S-1製品管理フロー図（汎用版）</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f0f2f5; }
-        .flow { display: flex; align-items: center; gap: 20px; }
-        .box { background: white; border: 3px solid #1a73e8; padding: 20px; border-radius: 10px; width: 200px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .arrow { font-size: 40px; color: #1a73e8; }
-        .point-box { margin-top: 30px; background: #fff4e5; border-left: 5px solid #ffa000; padding: 15px; width: 700px; }
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .flowchart { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: auto; }
+        .node { background: white; border: 2px solid #333; padding: 15px; border-radius: 8px; position: relative; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
+        .node h3 { margin: 0 0 10px 0; color: #0056b3; font-size: 1.1em; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+        .details { font-size: 0.9em; line-height: 1.6; color: #333; }
+        .link-box { margin-top: 10px; display: flex; gap: 10px; }
+        .btn { display: inline-block; padding: 6px 12px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; font-size: 0.85em; transition: 0.3s; }
+        .btn:hover { background-color: #0056b3; }
+        .arrow { text-align: center; font-size: 24px; color: #666; }
+        .tag { position: absolute; top: 10px; right: 10px; font-size: 0.75em; background: #eee; padding: 2px 6px; border-radius: 4px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
-    <div>
-        <h2 style="text-align:center;">S-1 品質管理 AI自動報告ツール 構成図</h2>
-        <div class="flow">
-            <div class="box"><b>①現場入力</b><br><small>スマホで日報入力<br>(ロット・嵩比重等)</small></div>
-            <div class="arrow">➡</div>
-            <div class="box"><b>②AI判定</b><br><small>QC工程表と照合<br>IG.loss等の合否判定</small></div>
-            <div class="arrow">➡</div>
-            <div class="box"><b>③Excel出力</b><br><small>Daily管理表等へ<br>自動転記・警告</small></div>
+
+<div class="flowchart">
+    <h2 style="text-align:center;">S-1 タルク製品 管理フロー図</h2>
+
+    <div class="node">
+        <span class="tag">原料加工拠点</span>
+        <h3>1. 原料入荷・初期加工</h3>
+        <div class="details">
+            ・外装およびコンタミの目視確認<br>
+            ・原料ロット番号の付与と追跡管理開始
         </div>
-        <div class="point-box">
-            <b>💡 工夫したポイント</b><br>
-            ・既存の3つのExcel資産のルールをAIに学習させ、現場運用を変えずに自動化。<br>
-            ・AIに「品質ガード」の役割を持たせ、規格外品の見落としを未然に防ぐ。
+        <div class="link-box">
+            <a href="https://docs.google.com/spreadsheets/d/1AvmOcCwVeTg26CJn0wWopIPeYNP2s3lH/edit?usp=sharing" target="_blank" class="btn">QC工程表を確認</a>
         </div>
     </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="node">
+        <span class="tag">粉砕・分級拠点</span>
+        <h3>2. 精密粉砕および粒度分級</h3>
+        <div class="details">
+            ・10-40meshへの精密加工<br>
+            ・製造中チェック（嵩比重・粒度分布）
+        </div>
+        <div class="link-box">
+            <a href="https://docs.google.com/spreadsheets/d/16o1kC8KkxMjnQFfXvzfcGp6XpUffTXLh/edit?usp=sharing" target="_blank" class="btn">日次記録(正本)を開く</a>
+        </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="node">
+        <span class="tag">試験・分析機関</span>
+        <h3>3. 品質試験・分析（COA発行）</h3>
+        <div class="details">
+            ・物理特性および化学分析の実施<br>
+            ・納入判定基準に基づく適合確認
+        </div>
+        <div class="link-box">
+            <a href="https://docs.google.com/spreadsheets/d/1P-F-jN5kc1AHb5cE5q5LUQ1bTYIahu0y/edit?usp=sharing" target="_blank" class="btn">集計表(参考)を確認</a>
+        </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="node">
+        <span class="tag">納入先</span>
+        <h3>4. 出荷・納入管理</h3>
+        <div class="details">
+            ・最終製品ロットの振分けと出荷案内<br>
+            ・受入判定結果のフィードバック管理
+        </div>
+    </div>
+
+    <p style="text-align:center; font-size:0.8em; color:#888; margin-top:30px;">
+        ※各ボタンをクリックすると、Googleドライブ上の管理帳票へ移動します。
+    </p>
+</div>
+
 </body>
 </html>
